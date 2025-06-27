@@ -1,7 +1,6 @@
 !pip install ultralytics opencv-python-headless deep_sort_realtime gdown --quiet
 
 import cv2, csv, torch, gdown
-import matplotlib.pyplot as plt
 from ultralytics import YOLO
 from deep_sort_realtime.deepsort_tracker import DeepSort
 from google.colab import drive, files
@@ -58,10 +57,8 @@ while cap.isOpened():
 
 cap.release()
 
-
 top_ids = sorted(id_counts.items(), key=lambda x: x[1], reverse=True)[:22]
 id_map = {old_id: f"Player {i+1}" for i, (old_id, _) in enumerate(top_ids)}
-
 
 cap = cv2.VideoCapture(video_path)
 csv_path = "final_log_fixed.csv"
@@ -70,7 +67,6 @@ with open(csv_path, 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["frame", "player_number", "x1", "y1", "x2", "y2"])
     frame_id = 0
-    debug_saved = False
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -82,8 +78,6 @@ with open(csv_path, 'w', newline='') as f:
             for tid, l, t, r, b in frame_detections[frame_id]:
                 label = id_map[tid] if tid in id_map else f"ID {tid}"
                 color = (0, 255, 0) if tid in id_map else (0, 0, 255)
-
-                # Clamp box within frame
                 l, t, r, b = max(0, l), max(0, t), min(width - 1, r), min(height - 1, b)
 
                 cv2.rectangle(frame, (l, t), (r, b), color, 2)
@@ -91,10 +85,6 @@ with open(csv_path, 'w', newline='') as f:
                 writer.writerow([frame_id, label, l, t, r, b])
 
         out.write(frame)
-
-        if not debug_saved:
-            cv2.imwrite("debug_sample_fixed.jpg", frame)
-            debug_saved = True
 
 cap.release()
 out.release()
@@ -107,4 +97,3 @@ print(f"Unique players detected: {len(id_counts)}, Top mapped: {len(top_ids)}")
 
 files.download("final_output_fixed.mp4")
 files.download("final_log_fixed.csv")
-files.download("debug_sample_fixed.jpg")
