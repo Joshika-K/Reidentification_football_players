@@ -1,4 +1,4 @@
-!pip install ultralytics opencv-python-headless deep_sort_realtime gdown --quiet
+pip install ultralytics opencv-python-headless deep_sort_realtime gdown --quiet
 
 import cv2, csv, torch, gdown
 from ultralytics import YOLO
