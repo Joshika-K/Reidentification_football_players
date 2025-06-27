@@ -1,4 +1,4 @@
-This project uses a custom-trained YOLOv11 model(best.pt) and DeepSORT for accurate player detection and re-identification in football video(15sec_input_720p.mp4). It assigns consistent player numbers and generates annotated output video, logs, and visualizations to assess tracking quality.
+This project uses a custom-trained model(best.pt) and DeepSORT for accurate player detection and re-identification in football video(15sec_input_720p.mp4). It assigns consistent player numbers and generates annotated output video, logs, and visualizations to assess tracking quality.
 
 How to Set Up & Run the Football Player Re-identification Project(GOOGLE COLAB):
 
