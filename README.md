@@ -34,6 +34,9 @@ files.download("final_output_fixed.mp4")
 files.download("final_log_fixed.csv")
 files.download("debug_sample_fixed.jpg")
 
+Step 7: Run the code for visualization: 
+ !python visualization.py
+
 NOTE
 Ensure GPU is enabled via Runtime > Change runtime type > GPU in Colab for faster processing.
 The model (best.pt) is auto-downloaded from Google Drive using gdown.
