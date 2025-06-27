@@ -15,9 +15,7 @@ Step 3: Install Required Libraries
 Install all dependencies needed for your script:
 !pip install -r requirements.txt
 
-Step 4: Mount Google Drive (for video access)
-from google.colab import drive
-drive.mount('/content/drive')
+Step 4: Mount Google Drive (for video access).
 Make sure your video file 15sec_input_720p.mp4 is placed in:
 /content/drive/MyDrive/15sec_input_720p.mp4
 
