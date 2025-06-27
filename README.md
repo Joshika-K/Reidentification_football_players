@@ -15,7 +15,7 @@ Step 3: Upload the 15sec_input_720p.mp to your drive(MyDrive)
 Path should be like:
 /content/drive/MyDrive/15sec_input_720p.mp4
 
-Step 4: Copy and paste the track_players.py into the new cell(cloning is not required)
+Step 4: Copy and paste the track_players.py into the new cell(cloning is not required) and run.
 Two files will get downloaded, one the final video and the other csv file.
 Allow the browser to download multiple files.
 
@@ -30,9 +30,9 @@ The model (best.pt) is auto-downloaded from Google Drive using gdown.
 Only the top 22 consistent players are assigned player numbers Player 1 to Player 22.
 
 Features:
-Custom YOLOv11 model (best.pt) for detecting football players.
+Custom model (best.pt) for detecting football players.
 DeepSORT for robust object re-identification across frames.
-Input: Football match video (.mp4).
+Input: Football match video (15sec_input_720o.mp4).
 Output: Annotated video with consistent player numbers.
 Re-ID Accuracy Metric: Measures ID consistency.
 Visualizations:
@@ -40,9 +40,6 @@ Visualizations:
 2) Player presence timeline (heatmap).
 Runs end-to-end in a single script.
 
-Sample Visualizations
-Bar Chart: Player appearance consistency across frames.
-Heatmap: Player presence over time (frame vs player matrix).
 
 
 
